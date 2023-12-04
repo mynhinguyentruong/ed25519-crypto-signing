@@ -1,10 +1,15 @@
+import { createSignature } from "@/utils/signing";
+
 export default async function Home() {
+  const message = "input a message";
+
+  const sig = createSignature(message);
+
   const options = {
     method: "GET",
     headers: {
-      "Magiclip-Signature":
-        "YgaFcCSV3TxVVyz25r8PRztnQnfDXHV8tsaezeDeijsKXa8C1SmbMI2qRgSx6aobeiqKBouHY7TCBrNpxQDQDA==",
-      "Magiclip-Message": "some data",
+      "Magiclip-Signature": sig,
+      "Magiclip-Message": message,
     },
   };
 
